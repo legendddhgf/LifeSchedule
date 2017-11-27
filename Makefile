@@ -1,10 +1,10 @@
 EXE = life
 MAINSRC = LifeSchedule
 MODULESRC = Activity
-HEADERS =
-SRC = $(MAINSRC: %=%.cpp) $(MODULESRC: %=%.cpp)
-OBJ = $(SRC: %.cpp=%.o)
-COMPILEFLAGS = -Wall -Werror -g
+HEADERS = args
+SRC = $(MAINSRC:%=%.cpp) $(MODULESRC:%=%.cpp)
+OBJ = $(SRC:%.cpp=%.o)
+COMPILEFLAGS = -Wall -Werror -g -std=c++11
 COMPILER = g++ -c
 COMPILE = $(COMPILER) $(COMPILEFLAGS)
 LINKERFLAGS =
@@ -21,10 +21,16 @@ $(OBJ): $(SRC) $(HEADERS)
 run: $(EXE)
 	echo "To Be Continued"
 
+ci: spotless
+	git add -A :/
+	git commit -av
+	git push
+	git log --oneline --graph --all
+
 clean:
 	$(REMOVE) $(OBJ)
 
 spotless: clean
 	$(REMOVE) $(EXE)
 
-.PHONY: clean spotless run
+.PHONY: clean spotless run ci
