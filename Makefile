@@ -21,6 +21,11 @@ $(OBJ): $(SRC) $(HEADERS)
 run: $(EXE)
 	echo "To Be Continued"
 
+HELP.md: $(EXE)
+	@ echo
+	@ $(EXE) -h > $@
+	@ cat $@
+
 ci: spotless
 	git add -A :/
 	git commit -av

@@ -7,8 +7,7 @@
  * @date 2017-11-26
  */
 
-#include <iostream>
-#include "args/args.hxx"
+#include "LifeSchedule.h"
 
 /**
  * @brief Main of the program
@@ -26,18 +25,15 @@ int main(int argc, char** argv) {
       "Project under development at http://github.com/legendddhgf/LifeSchedule"
       );
   args::Group commands(parser, "commands");
-  args::Command add(commands, "add", "add an activity to your life");
-  args::Command status(commands, "status", "see your life status");
+  args::Command add(commands, "add", "add an activity/task", &AddCommand);
+  args::Command status(commands, "status", "check current progress on activities", &StatusCommand);
+  args::Command time(commands, "time", "update progress on activity",
+      &TimeCommand);
   args::HelpFlag help(parser, "help", "display this help menu", {'h', "help"});
 
   // Execute parser
   try {
     parser.ParseCLI(argc, argv);
-    if(add) {
-      std::cout << "Adding an activity" << std::endl;
-    } else if(status) {
-      std::cout << "Checking status" << std::endl;
-    }
   } catch(args::Help) {
     std::cout << parser;
     return 0;
@@ -47,4 +43,17 @@ int main(int argc, char** argv) {
     return 1;
   }
   return 0;
+}
+
+void AddCommand(args::Subparser &parser) {
+  args::ValueFlag<std::string> message(parser, "MESSAGE", "activity message", {'m'});
+  parser.Parse();
+}
+
+void StatusCommand(args::Subparser &parser) {
+  parser.Parse();
+}
+
+void TimeCommand(args::Subparser &parser) {
+  parser.Parse();
 }
