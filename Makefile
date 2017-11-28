@@ -26,11 +26,11 @@ HELP.md: $(EXE)
 	@ $(EXE) -h > $@
 	@ cat $@
 
-ci: spotless
+ci: HELP.md spotless
 	git add -A :/
 	git commit -av
 	git push
-	git log --oneline --graph --all
+	git log --all --decorate --graph --oneline
 
 clean:
 	$(REMOVE) $(OBJ)
