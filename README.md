@@ -1,5 +1,8 @@
 # LifeSchedule
+
 An advanced utility for scheduling IRL Operating Systems
+
+[![Join the chat at https://gitter.im/LifeScheduler/Lobby](https://badges.gitter.im/LifeScheduler/Lobby.svg)](https://gitter.im/LifeScheduler/Lobby)
 
 ## Planned Features
 - specify different kinds of work
