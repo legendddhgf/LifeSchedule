@@ -1,4 +1,4 @@
-EXE = life
+EXE = Life
 MAINSRC = LifeSchedule
 MODULESRC = Activity
 HEADERS =
@@ -13,10 +13,10 @@ LINK = $(LINKER) $(LINKERFLAGS)
 REMOVE = rm -f
 
 $(EXE): $(OBJ)
-	$(LINK) $@ $<
+	$(LINK) $@ $^
 
 $(OBJ): $(SRC) $(HEADERS)
-	$(COMPILE) $<
+	$(COMPILE) $(SRC)
 
 run: $(EXE)
 	echo "To Be Continued"
