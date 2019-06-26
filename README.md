@@ -16,6 +16,8 @@ To be renamed "Backup Plan" by recommendation of my coworker, Kulwinder Atwal
   - activities can have a "regret-index" where a positive number means they add regret at a certain frequency and a negative number means that they relieve regret
   - a lower regret threshold (you aren't doing enough work) and a higher regret threshold (you are being overworked)
   - of course, this would be configurable as will everything else to match the differences between different people
+- defaults (in particular, whether a task is complete)
+- exportable/importable profiles (including defaults) for people who want a lot of things customized for them automatically.
 - multi-platform (in order of development priority)
   - unix CLI
   - PC GUI
